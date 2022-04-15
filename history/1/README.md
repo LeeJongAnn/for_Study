@@ -222,5 +222,5 @@ role값에 default를 줬으니(String으로) 만들어지는 모든 생성자�
     성공적으로 값이 바뀌었다. 원래 1번 아이디의 값은 username이 HongGildong이었으나 
     dlwhddksiq로 바뀌었고 , 이메일 역시도 바뀌었다. 이렇게 값을 수정하는 부분도 테스트완료 했다.
     
-# -> [Board객체의 생성으로 넘어가기](https://github.com/LeeJongAnn/for_Study/blob/main/history/1/1-1/README2.md)
+# -> [Board객체의 생성으로 넘어가기](https://github.com/LeeJongAnn/for_Study/blob/master/history/1/1-1/README2.md)
 

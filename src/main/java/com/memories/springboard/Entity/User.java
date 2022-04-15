@@ -33,15 +33,14 @@ public class User {
     @CreationTimestamp
     private Timestamp createTimestamp;
 
-    @Column(nullable = false, length = 64)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 
 
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.role="default";
     }
 
 }
