@@ -6,7 +6,7 @@
  2. 작성한 부분 :
 >   - [1. 엔티티 생성하고 테스트 코드 작성하기](https://github.com/LeeJongAnn/for_Study/blob/master/history/1/README.md)
 >   - [2. 프론트화면 만들기](https://github.com/LeeJongAnn/for_Study/blob/master/history/2/README.md)
->   - [3. Thymeleaf로 공통 부분 분할 하기]()
+>   - [3. Thymeleaf로 레이아웃 나누기]()
 
 
 

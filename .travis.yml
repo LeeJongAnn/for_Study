@@ -1,0 +1,52 @@
+language: java
+jdk:
+  - openjdk11
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+before_install: chmod +x gradlew
+
+script: "./gradlew clean build"
+
+before_deploy:
+  - zip -r springbootstudy *
+  - mkdir -p deploy
+  - mv springbootstudy.zip deploy/springbootstudy.zip
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: springstudy
+    region: ap-northeast-2
+    local_dir: deploy
+    skip_cleanup: true
+    acl: public_read
+    wait-until-deployed: true
+    on:
+      repo: LeeJongAnn/for_Study
+      branch: master
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: springstudy
+    key: springbootstudy.zip
+    bundle_type: zip
+    application: for_study_deploy
+    deployment_group: for_study_springboot
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: LeeJongAnn/for_Study
+      branch: master
+notifications:
+  email:
+    recipients:
+      - dlwhddksiq@naver.com

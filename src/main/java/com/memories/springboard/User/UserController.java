@@ -11,4 +11,9 @@ public class UserController {
     public String firstviewPage(){
         return "index";
     }
+
+    @GetMapping("/join_form")
+    public String joinviewPage(){
+        return "join_form";
+    }
 }
