@@ -6,15 +6,16 @@
  2. 작성한 부분 :
 >   - [1. 엔티티 생성하고 테스트 코드 작성하기](https://github.com/LeeJongAnn/for_Study/blob/master/history/1/README.md)
 >   - [2. 프론트화면 만들기](https://github.com/LeeJongAnn/for_Study/blob/master/history/2/README.md)
->   - [3. Thymeleaf로 레이아웃 나누기]()
+>   - [3. Thymeleaf로 레이아웃 나누기](https://github.com/LeeJongAnn/for_Study/tree/master/history/3)
 
 
 
-| 날짜                                                                   | 비고                                              |
-|----------------------------------------------------------------------|-------------------------------------------------|
-| 1. User 엔티티 생성 및 DB연결 확인,부트스트랩으로 앞단에 화면 생성 - 22년 4월 12일              | User 엔티티 생성되고 DB에 들어가는것 확인하였음                   |
-| 2. UserRepository 생성 및 테스트 코드로 User엔티티와 Repository 테스트  - 22년 4월 13일 | 실제로 값이 들어가는지 확인 완료                              |
-| 3. Board,Reply 엔티티 추가 및 UserRepository 테스트 코드 추가 - 22년 4월 14일        | Board와 Reply 엔티티 생성 , 연관 관계 맵핑해줘야됨              |
-| 4. UserRepository 객체를 얻어오는 테스트 코드 추가 - 22년 4월 14일                    | userRepository.get테스트 코드 추가                     |
-| 5. Thymeleaf로 화면분할 하고 RoleType 추가  - 22년 4월 15일                      | 로그인 회원가입 화면 만들어야 한다.                            |
+| 날짜                                                                   | 비고                                           |
+|----------------------------------------------------------------------|----------------------------------------------|
+| 1. User 엔티티 생성 및 DB연결 확인,부트스트랩으로 앞단에 화면 생성 - 22년 4월 12일              | User 엔티티 생성되고 DB에 들어가는것 확인하였음                |
+| 2. UserRepository 생성 및 테스트 코드로 User엔티티와 Repository 테스트  - 22년 4월 13일 | 실제로 값이 들어가는지 확인 완료                           |
+| 3. Board,Reply 엔티티 추가 및 UserRepository 테스트 코드 추가 - 22년 4월 14일        | Board와 Reply 엔티티 생성 , 연관 관계 맵핑해줘야됨           |
+| 4. UserRepository 객체를 얻어오는 테스트 코드 추가 - 22년 4월 14일                    | userRepository.get테스트 코드 추가                  |
+| 5. Thymeleaf로 화면분할 하고 RoleType 추가  - 22년 4월 15일                      | 로그인 회원가입 화면 만들어야 한다.                         |
 | 6. 회원가입 JS 작성 중 값이 콘솔로 올라오는지 확인  - 22년 4월 15일                        | 브랜치를 쪼개서 다른 방법으로도 만들어볼 생각,js init을 안해줘서 엄청 헤맸다. |
+| 7. ResponseDto 작성 및 응답이 오는지 확인  - 22년 4월 16일                         | 정상적으로 작동하는지 확인                               |
