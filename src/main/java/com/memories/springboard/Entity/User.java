@@ -4,6 +4,7 @@ package com.memories.springboard.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.management.relation.Role;
@@ -33,8 +34,8 @@ public class User {
     @CreationTimestamp
     private Timestamp createTimestamp;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType role;
+    @ColumnDefault("USER")
+    private String role;
 
 
     public User(String username, String password, String email) {
