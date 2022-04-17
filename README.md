@@ -7,8 +7,8 @@
 >   - [1. 엔티티 생성하고 테스트 코드 작성하기](https://github.com/LeeJongAnn/for_Study/blob/master/history/1/README.md)
 >   - [2. 프론트화면 만들기](https://github.com/LeeJongAnn/for_Study/blob/master/history/2/README.md)
 >   - [3. Thymeleaf로 레이아웃 나누기](https://github.com/LeeJongAnn/for_Study/tree/master/history/3)
->   - [4. 회원가입 기능 만들기](https://github.com/LeeJongAnn/for_Study/tree/Save-1/history/4)
->   - [5. 유저 정보 표시하기](https://github.com/LeeJongAnn/for_Study/tree/Save-1/history/5)
+>   - [4. 회원가입 기능 만들기](https://github.com/LeeJongAnn/for_Study/tree/master/history/4)
+>   - [5. 유저 정보 표시하기](https://github.com/LeeJongAnn/for_Study/tree/master/history/5)
 
 
 
