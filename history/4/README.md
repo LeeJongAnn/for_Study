@@ -28,6 +28,16 @@
 
     즉 정상적으로 작동하는 것을 알 수 있다.
     
+> 그리고 패키지에서 UserService를 형성하고 여기서 save 메소드를 써준다.
+> 그런 다음 ApiController에서 UserService Autowired로 DI해서 주입한다음 
+> 회원가입 메소드를 써서 회원가입 로직을 작성해준다.
 
+    회원가입이 성공하면 return 값이 1이 나오고 
+    아니면 -1이 나오게 된다.
+    아래는 UserService 코드의 모습
+    
+![img_9.png](img_9.png)
 
+    그리고 아래는 ApiController의 코드이다.
 
+![img_10.png](img_10.png)
