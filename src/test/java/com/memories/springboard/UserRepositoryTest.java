@@ -48,7 +48,7 @@ public class UserRepositoryTest {
             System.out.println(showList.toString());
         }
 
-//        userRepository.saveAll(list);
+        userRepository.saveAll(list);
     }
 
     @Test
