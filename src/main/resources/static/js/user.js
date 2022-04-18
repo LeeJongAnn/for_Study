@@ -14,13 +14,13 @@ let index = {
 
 				$.ajax({
             				type: "POST",
-            				url: "/SpringBoard/api/user",
+            				url: "/SpringBoard/auth/joinProc",
             				data: JSON.stringify(data),
             				contentType: "application/json; charset=utf-8",
             				dataType: "json"
             			}).done(function(resp){
             				alert("회원가입이 완료되었습니다.");
-            				location.href = "/SpringBoard/index";
+            				location.href = "/SpringBoard";
             			}).fail(function(error){
             				alert(JSON.stringify(error));
             			});

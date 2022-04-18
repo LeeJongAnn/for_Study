@@ -16,7 +16,7 @@ public class UserApiController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/api/user")
+    @PostMapping("/auth/joinProc")
     public ResponseDto<Integer> save(@RequestBody User user){
         int result = userService.회원가입(user);
         System.out.println("save호출됨");

@@ -25,12 +25,12 @@ public class UserController {
 
     }
 
-    @GetMapping("/join_form")
+    @GetMapping("/auth/joinForm")
     public String joinviewPage(){
         return "join_form";
     }
 
-    @GetMapping("/login_form")
+    @GetMapping("/auth/loginForm")
     public String loginviewPage(){
         return "login_form";
     }

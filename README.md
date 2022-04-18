@@ -9,6 +9,7 @@
 >   - [3. Thymeleaf로 레이아웃 나누기](https://github.com/LeeJongAnn/for_Study/tree/master/history/3)
 >   - [4. 회원가입 기능 만들기](https://github.com/LeeJongAnn/for_Study/tree/master/history/4)
 >   - [5. 유저 정보 표시하기](https://github.com/LeeJongAnn/for_Study/tree/master/history/5)
+>   - [6. 스프링 시큐리티 적용하기 ]()
 
 
 
@@ -23,3 +24,4 @@
 | 7. ResponseDto 작성 및 응답이 오는지 확인  - 22년 4월 16일                         | 정상적으로 작동하는지 확인                                  |
 | 8. 브랜치 나누고 index 페이지에 가입한 아이디 나오도록 작성  - 22년 4월 17일                  | Enum 타입 오류 수정                                   |
 | 9. 회원가입 성공  - 22년 4월 17일                                             | Enum타입은 안돼서 결국에는 삭제하고 회원가입 성공했다.                |
+| 10. 스프링 시큐리티 회원가입 작성 - 22년 4월 18일| 머리 뜨겁다.|
