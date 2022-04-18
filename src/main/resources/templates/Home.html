@@ -1,8 +1,12 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
 <head th:replace="header :: header">
 </head>
 <body>
 <div th:replace="nav :: navigation"></div>
+
+Authenticated username:
+<div sec:authentication="principal.username"></div>
 </body>
 </html>
