@@ -16,22 +16,28 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/index")
-    public String firstviewPage(Model model){
+    @GetMapping("/SpringBoard")
+    public String viewHomePage() {
+        return "Home";
+    }
 
-        List<User> listAll= userService.showAll();
-        model.addAttribute("List",listAll);
+
+    @GetMapping("/index")
+    public String firstviewPage(Model model) {
+
+        List<User> listAll = userService.showAll();
+        model.addAttribute("List", listAll);
         return "index";
 
     }
 
     @GetMapping("/auth/joinForm")
-    public String joinviewPage(){
+    public String joinviewPage() {
         return "join_form";
     }
 
     @GetMapping("/auth/loginForm")
-    public String loginviewPage(){
+    public String loginviewPage() {
         return "login_form";
     }
 }
