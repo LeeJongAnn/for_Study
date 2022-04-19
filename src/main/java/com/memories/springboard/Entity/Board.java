@@ -27,7 +27,6 @@ public class Board {
     @Lob
     private String content;
 
-    @ColumnDefault("0")
     private int count;
 
     @CreationTimestamp

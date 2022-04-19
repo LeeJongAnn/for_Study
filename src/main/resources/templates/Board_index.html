@@ -1,0 +1,28 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head th:replace="header :: header">
+</head>
+<body>
+<div th:replace="nav :: navigation"></div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">번호</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+        <th scope="col">만든 날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="board : ${everyBoard}">
+        <td>[[${board.id}]]</td>
+        <td>[[${board.title}]]</td>
+        <td>[[${board.user.username}]]</td>
+        <td>[[${board.createDate}]]</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
