@@ -20,6 +20,6 @@ public class BoardController {
     public String viewboardPage(Board board, Model model){
         List<Board> everyBoard = boardService.boardList(board);
         model.addAttribute("everyBoard",everyBoard);
-        return  "board_index";
+        return  "Board_index";
     }
 }
