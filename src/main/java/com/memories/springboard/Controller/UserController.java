@@ -45,9 +45,4 @@ public class UserController {
     }
 
 
-    @GetMapping("/boardForm")
-    public String boardPage(){
-        return "Board_form";
-    }
-
 }

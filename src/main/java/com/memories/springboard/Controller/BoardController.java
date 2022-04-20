@@ -1,4 +1,4 @@
-package com.memories.springboard.Controller.Api;
+package com.memories.springboard.Controller;
 
 import com.memories.springboard.Entity.Board;
 import com.memories.springboard.Repository.BoardRepository;
@@ -16,9 +16,14 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
+    @GetMapping("/boardForm")
+    public String viewboardForm(){
+        return "Board_form";
+    }
+
     @GetMapping("/board/view")
     public String viewboardPage(Board board, Model model){
-        List<Board> everyBoard = boardService.boardList(board);
+        List<Board> everyBoard = boardService.boardList();
         model.addAttribute("everyBoard",everyBoard);
         return  "Board_index";
     }
