@@ -1,10 +1,10 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
-<head th:replace="/Part/header :: header">
+<head th:replace="Part/header :: header">
 </head>
 <body>
-<div th:replace="/Part/nav :: navigation"></div>
+<div th:replace="Part/nav :: navigation"></div>
 
 <table class="table">
     <thead>
@@ -24,6 +24,6 @@
     </tr>
     </tbody>
 </table>
-<div th:replace="/Part/footer :: pagination"></div>
+<div th:replace="Part/footer :: pagination"></div>
 </body>
 </html>
