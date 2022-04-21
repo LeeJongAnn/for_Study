@@ -20,8 +20,16 @@ public class BoardController {
 
     @GetMapping("/boardForm")
     public String viewboardForm(){
-        return "Board_form";
+        return "/Board/Board_form";
     }
+
+    @GetMapping("/board/view/detail/{id}")
+    public String viewboardDetail(@PathVariable int id,Model model){
+
+        Board boardDetail = boardService.getBoardId(id);
+        model.addAttribute("boardDetail",boardDetail);
+        return "/Board/Board_detail";
+    };
 
     @GetMapping("/board/view/{count}")
     public String viewboardPage(@PathVariable int count, Board board, Model model){
@@ -30,6 +38,6 @@ public class BoardController {
         model.addAttribute("count",count);
         model.addAttribute("everyBoard",content);
         model.addAttribute("everyPage",everyBoard.getTotalPages());
-        return  "Board_index";
+        return  "/Board/Board_index";
     }
 }

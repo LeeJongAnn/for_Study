@@ -35,4 +35,11 @@ public class BoardService {
         Pageable pageable = PageRequest.of(count-1,4);
         return boardRepository.findAll(pageable);
     }
+
+    public Board getBoardId(int id){
+
+        return boardRepository.findById(id).orElseThrow(() -> {
+            return new IllegalArgumentException("글 상세보기 실패 : 해당 글을 찾을 수 없습니다.");
+        });
+    }
 }

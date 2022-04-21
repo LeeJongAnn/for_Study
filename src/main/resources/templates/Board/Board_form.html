@@ -1,15 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
-<head th:replace="header :: header">
-
+<head th:replace="/Part/header :: header">
 </head>
 <body>
+<div th:replace="/Part/nav :: navigation"></div>
 
-<div th:replace="nav :: navigation"></div>
 
-
-<form action="/" style="margin: 0 auto; width: 700px;">
+<form style="margin: 0 auto; width: 700px;">
     <div class="mb-3 mt-3">
         <label for="title" class="form-label">제목</label>
         <input type="text" class="form-control" id="title" placeholder="Enter email" name="email">
