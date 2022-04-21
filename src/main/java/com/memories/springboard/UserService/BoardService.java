@@ -14,9 +14,11 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class BoardService {
 
 
@@ -29,7 +31,8 @@ public class BoardService {
         boardRepository.save(board);
     }
 
-    public List<Board> boardList() {
-        return boardRepository.findAll();
+    public Page<Board> boardList(int count) {
+        Pageable pageable = PageRequest.of(count-1,4);
+        return boardRepository.findAll(pageable);
     }
 }
