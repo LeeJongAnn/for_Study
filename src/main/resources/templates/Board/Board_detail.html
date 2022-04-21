@@ -6,15 +6,29 @@
 <body>
 <div th:replace="Part/nav :: navigation"></div>
 
-<form style="margin: 0 auto; width: 700px;">
-    <div class="mb-3 mt-3">
-        <label for="title" class="form-label">제목</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter email" name="email">
-    </div>
-    <label for="comment">Comments:</label>
-    <textarea class="form-control summernote" rows="5" id="content" name="text"></textarea>
-</form>
+<div class="container">
 
+    <button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
+    <button id="btn-update" class="btn btn-warning">수정</button>
+    <div>
+        <button id="btn-delete" class="btn btn-danger">삭제</button>
+    </div>
+    <br/><br/>
+    <div>
+        글 번호 : <span id="id"><i>[[${boardDetail.id}]]</i></span>
+        작성자 : <span><i>[[${boardDetail.user.username}]]</i></span>
+    </div>
+    <br/>
+    <div>
+        <h3>제목 : [[${boardDetail.title}]]</h3>
+    </div>
+    <hr/>
+    <div>
+        <div>내용: [[${boardDetail.content}]]</div>
+    </div>
+    <hr/>
+
+</div>
 <script src="/SpringBoard/js/board.js"></script>
 </body>
 </html>

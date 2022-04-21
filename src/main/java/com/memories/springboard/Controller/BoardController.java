@@ -25,16 +25,17 @@ public class BoardController {
 
     @GetMapping("/board/view/detail/{id}")
     public String viewboardDetail(@PathVariable int id,Model model){
-
         Board boardDetail = boardService.getBoardId(id);
         model.addAttribute("boardDetail",boardDetail);
         return "Board/Board_detail";
+
     };
 
     @GetMapping("/board/view/{count}")
     public String viewboardPage(@PathVariable int count, Board board, Model model){
         Page<Board> everyBoard = boardService.boardList(count);
         List<Board> content = everyBoard.getContent();
+
         model.addAttribute("count",count);
         model.addAttribute("everyBoard",content);
         model.addAttribute("everyPage",everyBoard.getTotalPages());

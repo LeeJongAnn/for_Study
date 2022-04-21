@@ -18,7 +18,7 @@
     <tbody>
     <tr th:each="board : ${everyBoard}">
         <td>[[${board.id}]]</td>
-        <td><a>[[${board.title}]]</a></td>
+        <td><a th:href="@{'/board/view/detail/' + ${board.id}}">[[${board.title}]]</a></td>
         <td>[[${board.user.username}]]</td>
         <td>[[${board.createDate}]]</td>
     </tr>
