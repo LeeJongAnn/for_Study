@@ -42,4 +42,8 @@ public class BoardService {
             return new IllegalArgumentException("글 상세보기 실패 : 해당 글을 찾을 수 없습니다.");
         });
     }
+
+    public void 글삭제하기(int id){
+         boardRepository.deleteById(id);
+    }
 }
