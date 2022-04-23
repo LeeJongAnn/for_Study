@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head th:replace="Part/header :: header">
+</head>
+<body>
+<div th:replace="Part/nav :: navigation"></div>
+
+
+<form style="margin: 0 auto; width: 700px;">
+    <input type="hidden" id="id" th:value="${boardDetail.id}"/>
+    <input type="hidden" name="_method" value="put"/>
+    <div class="mb-3 mt-3">
+        <label for="title" class="form-label">제목</label>
+        <input th:value="${boardDetail.title}" class="form-control" id="title" placeholder="제목을 입력하세요">
+    </div>
+    <label for="comment">Comments:</label>
+    <textarea class="form-control summernote" rows="5" id="content">[[${boardDetail.content}]]</textarea>
+</form>
+<button id="btn-update" type="submit" class="btn btn-primary m-3" style="position:relative; left:380px;">글수정 완료</button>
+
+
+<script>
+      $('.summernote').summernote({
+        tabsize: 2,
+        height: 300,
+        callbacks: {
+          onFocus: function (contents) {
+        if($('.summernote').summernote('isEmpty')){
+      $(".summernote").html('');
+            }
+          }
+        }
+});
+
+
+</script>
+<script src="/SpringBoard/js/board.js"></script>
+</body>
+</html>

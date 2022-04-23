@@ -7,29 +7,57 @@ let index = {
 			}),
 			$("#btn-delete").on("click", ()=>{
             				this.deletebyId();
-            			});
+            			}),
+            $("#btn-update").on("click", ()=>{
+                            this.update();
+                        			});
 		},
 
-		save: function(){
+		update: function(){
+		    let id = $("#id").val();
+
 			let data = {
                 title : $("#title").val(),
                 content : $("#content").val(),
-			}
+			};
+			console.log(title);
+			console.log(content);
 
 				$.ajax({
-            				type: "POST",
-            				url: "/SpringBoard/api/board",
+            				type: "PUT",
+            				url: "/SpringBoard/api/board/detail/" + id,
             				data: JSON.stringify(data),
             				contentType: "application/json; charset=utf-8",
             				dataType: "json"
             			}).done(function(resp){
-            				alert("글쓰기가 완료되었습니다.");
+            				alert("글수정이 완료되었습니다.");
             				location.href = "/SpringBoard/board/view/1";
             			}).fail(function(error){
             				alert(JSON.stringify(error));
             			});
 
             		},
+
+          save: function(){
+          			let data = {
+                          title : $("#title").val(),
+                          content : $("#content").val(),
+          			}
+
+          				$.ajax({
+                      				type: "POST",
+                      				url: "/SpringBoard/api/board",
+                      				data: JSON.stringify(data),
+                      				contentType: "application/json; charset=utf-8",
+                      				dataType: "json"
+                      			}).done(function(resp){
+                      				alert("글쓰기가 완료되었습니다.");
+                      				location.href = "/SpringBoard/board/view/1";
+                      			}).fail(function(error){
+                      				alert(JSON.stringify(error));
+                      			});
+
+                      		},
 
         deletebyId: function(){
                 var id = $("#id").text();

@@ -23,6 +23,13 @@ public class BoardController {
         return "Board/Board_form";
     }
 
+    @GetMapping("/boardForm/updateForm/{id}")
+    public String viewboardUpdateForm(@PathVariable int id,Model model){
+        Board boardDetail = boardService.getBoardId(id);
+        model.addAttribute("boardDetail",boardDetail);
+        return "Board/Board_updateForm";
+    }
+
     @GetMapping("/board/view/detail/{id}")
     public String viewboardDetail(@PathVariable int id,Model model){
         Board boardDetail = boardService.getBoardId(id);
