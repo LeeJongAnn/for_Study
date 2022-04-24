@@ -30,7 +30,34 @@
     </div>
     <hr/>
 
-<button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
+    <div class="card">
+        <form>
+        <input type="hidden" id=boardId th:value="${boardDetail.id}">
+        <div class="card-body">
+            <textarea class="form-control" id="reply-content" rows="1"></textarea>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary" id="btn-reply-save">등록</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    </br>
+    <div class="card">
+        <div class="card-header">댓글 리스트</div>
+        <ul id="comment--box" class="list-group">
+            <th:block th:each="reply : ${boardDetail.reply}">
+            <li id="comment--1" class="list-group-item d-flex justify-content-between">
+                <div class="d-flex">
+                    <div>[[${reply.content}]] - </div>
+                    <div class="font-italic">작성자 : [[${reply.user.username}]] &nbsp;</div>
+                    <button class="badge">삭제</button>
+                </div>
+            </li>
+            </th:block>
+        </ul>
+    </div>
+
+    <button class="btn btn-secondary m-1" onclick="history.back()">돌아가기</button>
 </div>
 <script src="/SpringBoard/js/board.js"></script>
 </body>

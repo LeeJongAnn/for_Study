@@ -6,11 +6,14 @@ let index = {
 				this.save();
 			}),
 			$("#btn-delete").on("click", ()=>{
-            				this.deletebyId();
+                this.deletebyId();
             			}),
             $("#btn-update").on("click", ()=>{
-                            this.update();
-                        			});
+                this.update();
+                        			}),
+             $("#btn-reply-save").on("click", ()=>{
+                this.saveReply();
+                                    });
 		},
 
 		update: function(){
@@ -58,6 +61,27 @@ let index = {
                       			});
 
                       		},
+
+          saveReply: function(){
+                  			let data = {
+                  			      boardId : $("#boardId").val(),
+                                  content : $("#reply-content").val()
+                  			}
+                            console.log(data);
+                  				$.ajax({
+                              				type: "POST",
+                              				url: `/SpringBoard/api/${data.boardId}/reply`,
+                              				data: JSON.stringify(data),
+                              				contentType: "application/json; charset=utf-8",
+                              				dataType: "json"
+                              			}).done(function(resp){
+                              				alert("댓글 작성이 완료되었습니다.");
+                              				location.href = `/SpringBoard/board/view/detail/${data.boardId}`;
+                              			}).fail(function(error){
+                              				alert(JSON.stringify(error));
+                              			});
+
+                            },
 
         deletebyId: function(){
                 var id = $("#id").text();

@@ -2,8 +2,10 @@ package com.memories.springboard.UserService;
 
 
 import com.memories.springboard.Entity.Board;
+import com.memories.springboard.Entity.Reply;
 import com.memories.springboard.Entity.User;
 import com.memories.springboard.Repository.BoardRepository;
+import com.memories.springboard.Repository.ReplyRepository;
 import com.memories.springboard.config.PrincipalDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +26,9 @@ public class BoardService {
 
     @Autowired
     private BoardRepository boardRepository;
+
+    @Autowired
+    private ReplyRepository replyRepository;
 
     public void 글쓰기(Board board, User user) {
         board.setUser(user);
@@ -56,5 +61,18 @@ public class BoardService {
                 });
         board.setTitle(requestBoard.getTitle());
         board.setContent(requestBoard.getContent());
+    }
+
+    @Transactional
+    public void 댓글쓰기(User user, int boardId, Reply requestReply) {
+
+        Board board = boardRepository.findById(boardId).orElseThrow(()->{
+            return new IllegalArgumentException("댓글 쓰기 실패 : 게시글 id를 찾을 수 없습니다.");
+        });
+
+        requestReply.setUser(user);
+        requestReply.setBoard(board);
+
+        replyRepository.save(requestReply);
     }
 }
