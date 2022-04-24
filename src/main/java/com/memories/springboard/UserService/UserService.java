@@ -1,9 +1,13 @@
 package com.memories.springboard.UserService;
 
 
+import com.memories.springboard.Entity.Board;
 import com.memories.springboard.Entity.User;
 import com.memories.springboard.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +36,13 @@ public class UserService {
             e.printStackTrace();
             System.out.println("UserService: " + e.getMessage());
         }
-    return -1;
-    }
-    public List<User> showAll(){
-        return (List<User>)userRepo.findAll();
+        return -1;
     }
 
+    public Page<User> showAll(int count) {
+        Pageable pageable = PageRequest.of(count-1,4);
+        return userRepo.findAll(pageable);
+    }
 
 
 }
