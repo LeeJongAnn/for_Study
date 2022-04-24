@@ -41,6 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/auth/loginForm")
                 .loginProcessingUrl("/auth/loginProc")
-                .defaultSuccessUrl("/SpringBoard");
+                .defaultSuccessUrl("/SpringBoard/");
     }
 }
