@@ -20,7 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/SpringBoard")
+    @GetMapping("/Home")
     public String viewHomePage(@AuthenticationPrincipal PrincipalDetail principal) {
         System.out.println(principal.getUsername());
         return "Home";
