@@ -20,7 +20,7 @@ let index = {
             				dataType: "json"
             			}).done(function(resp){
             				alert("회원가입이 완료되었습니다.");
-            				location.href = "/Home";
+            				location.href = "/SpringBoard/Home";
             			}).fail(function(error){
             				alert(JSON.stringify(error));
             			});
