@@ -5,7 +5,9 @@
 </head>
 <body>
 <div th:replace="Part/nav :: navigation"></div>
-
+<div th:if="${Call != null}" class="alert alert-primary text-center" role="alert">
+    [[${Call}]]
+</div>
 <div class="container">
 
     <div th:if="${#authentication.principal.user.id} == ${boardDetail.user.id}">
@@ -32,13 +34,13 @@
 
     <div class="card">
         <form>
-        <input type="hidden" id=boardId th:value="${boardDetail.id}">
-        <div class="card-body">
-            <textarea class="form-control" id="reply-content" rows="1"></textarea>
-            <div class="card-footer">
-                <button type="button" class="btn btn-primary" id="btn-reply-save">등록</button>
+            <input type="hidden" id=boardId th:value="${boardDetail.id}">
+            <div class="card-body">
+                <textarea class="form-control" id="reply-content" rows="1"></textarea>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" id="btn-reply-save">등록</button>
+                </div>
             </div>
-        </div>
         </form>
     </div>
     </br>
@@ -46,13 +48,17 @@
         <div class="card-header">댓글 리스트</div>
         <ul id="comment--box" class="list-group">
             <th:block th:each="reply : ${boardDetail.reply}">
-            <li id="comment--1" class="list-group-item d-flex justify-content-between">
-                <div class="d-flex">
-                    <div>[[${reply.content}]] - </div>
-                    <div class="font-italic">작성자 : [[${reply.user.username}]] &nbsp;</div>
-                    <button class="badge">삭제</button>
-                </div>
-            </li>
+                <li id="comment--1" class="list-group-item d-flex justify-content-between">
+                    <div class="d-flex">
+                        <div>[[${reply.content}]] -</div>
+                        <div class="font-italic">작성자 : [[${reply.user.username}]] &nbsp;</div>
+                        <form th:action="@{'/api/reply/delete/' + ${reply.id}}" method="post">
+                            <input type="hidden" name="replyId" th:value="${reply.id}">
+                            <input type="hidden" name="boardId" th:value="${boardDetail.id}">
+                            <button type="submit" class="badge">삭제</button>
+                        </form>
+                    </div>
+                </li>
             </th:block>
         </ul>
     </div>

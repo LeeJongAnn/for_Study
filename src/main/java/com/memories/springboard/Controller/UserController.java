@@ -25,6 +25,13 @@ public class UserController {
         System.out.println(principal.getUsername());
         return "Home";
     }
+    @GetMapping("/user/updateForm")
+    public String viewUpdateForm(@AuthenticationPrincipal PrincipalDetail principal,Model model) {
+
+        System.out.println(principal.getUsername());
+        return "updateForm";
+    }
+
 
 
     @GetMapping("/index/{count}")

@@ -45,4 +45,15 @@ public class UserService {
     }
 
 
+    @Transactional
+    public void 회원수정(User user) {
+
+        User persistence = userRepo.findById(user.getId()).orElseThrow(()->{
+            return new IllegalArgumentException("회원 찾기 실패");
+        });
+        String rawPassowrd = user.getPassword();
+        String encPassowrd=  encoder.encode(rawPassowrd);
+        persistence.setPassword(encPassowrd);
+        persistence.setEmail(user.getEmail());
+    }
 }

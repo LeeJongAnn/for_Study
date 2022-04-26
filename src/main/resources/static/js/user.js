@@ -2,7 +2,10 @@ let index = {
 		init: function(){
 			$("#btn-save").on("click", ()=>{
 				this.save();
-			});
+			}),
+			$("#btn-update").on("click", ()=>{
+            				this.update();
+            			});
 		},
 
 		save: function(){
@@ -27,6 +30,30 @@ let index = {
 
             		},
 
-			}
+
+
+		update: function(){
+        			let data = {
+        			    id : $("#id").val(),
+                        password : $("#password").val(),
+                        email : $("#email").val()
+        			}
+
+        				$.ajax({
+                    				type: "PUT",
+                    				url: "/SpringBoard/user",
+                    				data: JSON.stringify(data),
+                    				contentType: "application/json; charset=utf-8",
+                    				dataType: "json"
+                    			}).done(function(resp){
+                    				alert("회원수정이 완료되었습니다.");
+                    				location.href = "/SpringBoard/Home";
+                    			}).fail(function(error){
+                    				alert(JSON.stringify(error));
+                    			});
+
+                    		},
+
+        			}
 
 index.init()

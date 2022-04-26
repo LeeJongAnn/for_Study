@@ -5,10 +5,13 @@ import com.memories.springboard.Repository.BoardRepository;
 import com.memories.springboard.UserService.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -47,5 +50,13 @@ public class BoardController {
         model.addAttribute("everyBoard",content);
         model.addAttribute("everyPage",everyBoard.getTotalPages());
         return  "Board/Board_index";
+    }
+
+    @PostMapping("/api/reply/delete/{replyId}")
+    public String replydelete(@PathVariable(name = "replyId")  int replyId, @Param("boardId") int boardId,
+                              RedirectAttributes redirectAttributes){
+        boardService.댓글삭제(replyId);
+        redirectAttributes.addFlashAttribute("Call","해당 하는 댓글이 삭제되었습니다 :" + replyId);
+        return "redirect:/board/view/detail/" + boardId;
     }
 }

@@ -50,4 +50,6 @@ public class BoardApiController {
         boardService.댓글쓰기(principal.getUser(),boardId,reply);
         return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
     }
+
+
 }
