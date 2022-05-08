@@ -30,7 +30,7 @@
         <li th:class="${count>1} ? 'page-item' : 'page-item disabled'">
             <a class="page-link" th:href="@{'/index/' + ${count-1}}">Previous</a>
         </li>
-        <li  class="page-item" th:each="CountBy : ${#numbers.sequence(1,everyPage)}"><a class="page-link" th:href="@{'/index/' + ${CountBy}}">[[${CountBy}]]</a></li>
+        <li th:class="${CountBy==count} ? 'page-item active' : 'page-item'" th:each="CountBy : ${#numbers.sequence(1,everyPage)}"><a class="page-link" th:href="@{'/index/' + ${CountBy}}">[[${CountBy}]]</a></li>
         <li th:class="${count<everyPage} ? 'page-item' : 'page-item disabled'">
             <a class="page-link" th:href="@{'/index/' + ${count+1}}">Next</a>
         </li>
