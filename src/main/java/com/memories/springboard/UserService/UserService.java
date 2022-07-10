@@ -42,7 +42,7 @@ public class UserService {
 
     public Page<User> showAll(int count,String classify , String Direction) {
         Sort s = Sort.by(classify);
-        s = classify.equals("asc") ? s.ascending() : s.descending();
+        s = Direction.equals("asc") ? s.ascending() : s.descending();
         Pageable pageable = PageRequest.of(count-1,4,s);
         return userRepo.findAll(pageable);
     }
