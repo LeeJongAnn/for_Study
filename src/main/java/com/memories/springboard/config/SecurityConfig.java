@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/rest/*","/auth/**","/js/**","/","/images/**","/Part/**","/Board/**")
+                .antMatchers("/fontawesome/**","/rest/**","/auth/**","/js/**","/","/images/**","/Part/**","/Board/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -41,6 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/auth/loginForm")
                 .loginProcessingUrl("/auth/loginProc")
-                .defaultSuccessUrl("/Home/");
+                .defaultSuccessUrl("/Home");
     }
 }
