@@ -7,11 +7,22 @@
 <div th:replace="Part/nav :: navigation"></div>
 
 <table class="table">
-    <thead>
+    <thead class="table-primary">
     <tr>
         <th scope="col">번호</th>
-        <th scope="col">이름</th>
-        <th scope="col">이메일</th>
+        <th scope="col">
+            <a th:if="${classify != 'username'}" th:href="@{'/index/' + ${nowPage} + '?classify=username&Direction=' + ${Direction}}">이름</a>
+            <a th:if="${classify == 'username'}" th:href="@{'/index/' + ${nowPage} + '?classify=username&Direction=' + ${flip}}">이름</a>
+            <span th:if="${classify == 'username'}" th:class="${Direction == 'asc' ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'}"></span>
+
+        </th>
+        <th scope="col">
+            <a th:if="${classify != 'email'}" th:href="@{'/index/' + ${nowPage} + '?classify=email&Direction=' + ${Direction}}">이메일</a>
+            <a th:if="${classify == 'email'}" th:href="@{'/index/' + ${nowPage} + '?classify=email&Direction=' + ${flip}}">이메일</a>
+
+            <span th:if="${classify == 'email'}" th:class="${Direction == 'asc' ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'}"></span>
+
+        </th>
         <th scope="col">가입날짜</th>
     </tr>
     </thead>
