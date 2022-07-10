@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,8 +40,10 @@ public class UserService {
         return -1;
     }
 
-    public Page<User> showAll(int count) {
-        Pageable pageable = PageRequest.of(count-1,4);
+    public Page<User> showAll(int count,String classify , String Direction) {
+        Sort s = Sort.by(classify);
+        s = classify.equals("asc") ? s.ascending() : s.descending();
+        Pageable pageable = PageRequest.of(count-1,4,s);
         return userRepo.findAll(pageable);
     }
 
