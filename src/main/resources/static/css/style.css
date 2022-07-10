@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    height: 100vh;
+
+}
+
+#player{
+    pointer-events: none;
+    z-index: -99;
+}
+
+.sidebar{
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    max-width: 250px;
+    width: 40vw;
+    height: 100vh;
+    color: white;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2{
+    text-align: center;
+}
+
+.sidebar-toggle{
+    position: absolute;
+    top: 0;
+    right:0;
+    z-index: 100;
+    padding: 5px;
+}
+.hide {
+    display: none;
+}
+
+.white {
+    color: white;
+    background-color: rgba(0,0,0,0.4);
+    padding: 5px;
+    border-radius: 50%;
+
+}
+
+
+.speed{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.video-speed{
+    margin: 5px 0;
+}
+
+.video-speed h4{
+    text-align: center;
+    padding: 5px 0;
+}
+
+.speed p, .mute{
+    cursor: pointer;
+    padding: 10px;
+    background-color:rgba(0,0,0,0.4);
+    border: 1px solid white;
+    border-radius: 2px;
+}
+.speed p:hover,.mute:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.speed p.active{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.street-noise{
+    padding: 5px 0;
+    text-align: center;
+}
+
+.street-noise h4{
+    padding: 5px 0;
+}
+
+.audio{
+    text-align: center;
+    background-color: rgba(0,0,0,0.4);
+    margin: 20px 0;
+    border-radius: 2px;
+    border: 1px solid white;
+
+}
+
+.audio h4 {
+    text-align: center;
+    background-color: rgba(255,255,255,0.3);
+    border-bottom: 1px solid white;
+}
+
+.audio-controls{
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid white;
+}
+
+.volume{
+    padding: 15px 0;
+}
+
+.loading {
+    height: 100vh;
+    width: 100%;
+    z-index: 98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: #eee;
+}

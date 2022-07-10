@@ -54,5 +54,9 @@ public class UserController {
         return "login_form";
     }
 
+    @GetMapping("/street")
+    public String viewStreet() {
+        return "index2";
+    }
 
 }
