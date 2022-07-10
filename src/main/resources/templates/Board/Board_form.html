@@ -17,8 +17,14 @@
 </form>
 
 <button id="btn-save" type="submit" class="btn btn-primary m-3" style="position:relative; left:380px;">글쓰기 완료</button>
-
+<input type="button" id="Cancel" class="btn btn-secondary" style="position:relative; left:400px;" value="돌아가기">
 <script>
+$(document).ready(function(){
+    $("#Cancel").on("click", function(){
+        history.back();
+    })
+});
+
       $('.summernote').summernote({
         tabsize: 2,
         height: 300,

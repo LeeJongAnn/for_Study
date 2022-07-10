@@ -26,7 +26,14 @@
     <button id="btn-save" class="btn btn-primary m-3">회원가입완료</button>
 
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#Cancel").on("click", function(){
+        history.back();
+    })
+});
 
+</script>
 <script src="/SpringBoard/js/user.js"></script>
 </body>
 </html>
