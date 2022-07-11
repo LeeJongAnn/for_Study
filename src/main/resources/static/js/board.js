@@ -34,7 +34,7 @@ let index = {
             				dataType: "json"
             			}).done(function(resp){
             				alert("글수정이 완료되었습니다.");
-            				location.href = "/SpringBoard/board/view/1";
+            				location.href = "/SpringBoard/api/board/detail/" + id;
             			}).fail(function(error){
             				alert(JSON.stringify(error));
             			});
@@ -91,7 +91,7 @@ let index = {
                     				dataType: "json"
                     			}).done(function(resp){
                     				alert("삭제가 완료되었습니다.");
-                    				location.href = "/SpringBoard/board/view/1";
+                    				location.href = "/SpringBoard/board/view/1?classify=id&Direction=asc";
                     			}).fail(function(error){
                     				alert(JSON.stringify(error));
                     			});
