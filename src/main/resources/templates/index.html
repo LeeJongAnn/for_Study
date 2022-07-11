@@ -9,16 +9,22 @@
 <table class="table">
     <thead class="table-primary">
     <tr>
-        <th scope="col">번호</th>
         <th scope="col">
-            <a th:if="${classify != 'username'}" th:href="@{'/index/' + ${nowPage} + '?classify=username&Direction=' + ${Direction}}">이름</a>
-            <a th:if="${classify == 'username'}" th:href="@{'/index/' + ${nowPage} + '?classify=username&Direction=' + ${flip}}">이름</a>
+            <a class="text-dark" style="text-decoration: none;" th:if="${classify != 'id'}" th:href="@{'/index/' + ${nowPage} + '?classify=id&Direction=' + ${Direction}}">번호</a>
+            <a class="text-dark" style="text-decoration: none;" th:if="${classify == 'id'}" th:href="@{'/index/' + ${nowPage} + '?classify=id&Direction=' + ${flip}}">번호</a>
+
+            <span th:if="${classify == 'id'}" th:class="${Direction == 'asc' ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'}"></span>
+
+        </th>
+        <th scope="col">
+            <a class="text-dark" style="text-decoration: none;" th:if="${classify != 'username'}" th:href="@{'/index/' + ${nowPage} + '?classify=username&Direction=' + ${Direction}}">이름</a>
+            <a class="text-dark" style="text-decoration: none;" th:if="${classify == 'username'}" th:href="@{'/index/' + ${nowPage} + '?classify=username&Direction=' + ${flip}}">이름</a>
             <span th:if="${classify == 'username'}" th:class="${Direction == 'asc' ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'}"></span>
 
         </th>
         <th scope="col">
-            <a th:if="${classify != 'email'}" th:href="@{'/index/' + ${nowPage} + '?classify=email&Direction=' + ${Direction}}">이메일</a>
-            <a th:if="${classify == 'email'}" th:href="@{'/index/' + ${nowPage} + '?classify=email&Direction=' + ${flip}}">이메일</a>
+            <a class="text-dark" style="text-decoration: none;" th:if="${classify != 'email'}" th:href="@{'/index/' + ${nowPage} + '?classify=email&Direction=' + ${Direction}}">이메일</a>
+            <a class="text-dark" style="text-decoration: none;"th:if="${classify == 'email'}" th:href="@{'/index/' + ${nowPage} + '?classify=email&Direction=' + ${flip}}">이메일</a>
 
             <span th:if="${classify == 'email'}" th:class="${Direction == 'asc' ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'}"></span>
 
@@ -39,11 +45,11 @@
 <nav>
     <ul class="pagination justify-content-center">
         <li th:class="${count>1} ? 'page-item' : 'page-item disabled'">
-            <a class="page-link" th:href="@{'/index/' + ${count-1}}">Previous</a>
+            <a class="page-link" th:href="@{'/index/' + ${count-1} + '?classify=' + ${classify} +'&Direction=' + ${Direction}}">Previous</a>
         </li>
-        <li th:class="${CountBy==count} ? 'page-item active' : 'page-item'" th:each="CountBy : ${#numbers.sequence(1,everyPage)}"><a class="page-link" th:href="@{'/index/' + ${CountBy}}">[[${CountBy}]]</a></li>
+        <li th:class="${CountBy==count} ? 'page-item active' : 'page-item'" th:each="CountBy : ${#numbers.sequence(1,everyPage)}"><a class="page-link" th:href="@{'/index/' + ${CountBy} + '?classify=' + ${classify} +'&Direction=' + ${Direction}}">[[${CountBy}]]</a></li>
         <li th:class="${count<everyPage} ? 'page-item' : 'page-item disabled'">
-            <a class="page-link" th:href="@{'/index/' + ${count+1}}">Next</a>
+            <a class="page-link" th:href="@{'/index/' + ${count+1} + '?classify=' + ${classify} +'&Direction=' + ${Direction}}">Next</a>
         </li>
     </ul>
 </nav>

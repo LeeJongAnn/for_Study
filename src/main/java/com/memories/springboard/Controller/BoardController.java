@@ -42,13 +42,19 @@ public class BoardController {
     };
 
     @GetMapping("/board/view/{count}")
-    public String viewboardPage(@PathVariable int count, Board board, Model model){
-        Page<Board> everyBoard = boardService.boardList(count);
+    public String viewboardPage(@PathVariable int count, Board board, Model model,@Param("classify")String classify, @Param("Direction") String Direction){
+        Page<Board> everyBoard = boardService.boardList(count,classify,Direction);
         List<Board> content = everyBoard.getContent();
+
+        String flip = Direction.equals("asc") ? "desc" : "asc";
 
         model.addAttribute("count",count);
         model.addAttribute("everyBoard",content);
         model.addAttribute("everyPage",everyBoard.getTotalPages());
+        model.addAttribute("nowPage",count);
+        model.addAttribute("classify",classify);
+        model.addAttribute("Direction",Direction);
+        model.addAttribute("flip",flip);
         return  "Board/Board_index";
     }
 

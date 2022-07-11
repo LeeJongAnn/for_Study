@@ -9,7 +9,13 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">번호</th>
+        <th scope="col">
+            <a class="text-dark" style="text-decoration: none;" th:if="${classify != 'id'}" th:href="@{'/board/view/' + ${nowPage} + '?classify=id&Direction=' + ${Direction}}">번호</a>
+            <a class="text-dark" style="text-decoration: none;" th:if="${classify == 'id'}" th:href="@{'/board/view/' + ${nowPage} + '?classify=id&Direction=' + ${flip}}">번호</a>
+
+            <span th:if="${classify == 'id'}" th:class="${Direction == 'asc' ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'}"></span>
+
+        </th>
         <th scope="col">제목</th>
         <th scope="col">작성자</th>
         <th scope="col">만든 날짜</th>

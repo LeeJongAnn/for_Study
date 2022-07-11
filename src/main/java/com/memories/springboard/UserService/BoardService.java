@@ -36,8 +36,10 @@ public class BoardService {
         boardRepository.save(board);
     }
 
-    public Page<Board> boardList(int count) {
-        Pageable pageable = PageRequest.of(count-1,4);
+    public Page<Board> boardList(int count,String classify , String Direction) {
+        Sort s = Sort.by(classify);
+        s = Direction.equals("asc") ? s.ascending() : s.descending();
+        Pageable pageable = PageRequest.of(count-1,4,s);
         return boardRepository.findAll(pageable);
     }
 
